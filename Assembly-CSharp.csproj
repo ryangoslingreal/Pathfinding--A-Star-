@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{00BC929C-EED7-A33B-955E-A15825665676}</ProjectGuid>
+    <ProjectGuid>{E5697756-D7C6-90B6-AF2D-CBEE66D4DE0B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Node.cs" />
+    <Compile Include="Assets\Grid.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
