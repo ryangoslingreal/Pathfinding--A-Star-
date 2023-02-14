@@ -251,7 +251,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 530539379}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.24767938, y: -38.00038, z: 2.8520012}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -270,6 +270,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4bb1525d84e267428ee9a00506ee5d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  untraversableMask:
+    serializedVersion: 2
+    m_Bits: 64
+  gridWorldSize: {x: 100, y: 100}
+  nodeRadius: 0.5
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -376,7 +381,7 @@ GameObject:
   - component: {fileID: 787195500}
   - component: {fileID: 787195499}
   - component: {fileID: 787195498}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -481,7 +486,7 @@ GameObject:
   - component: {fileID: 799385926}
   - component: {fileID: 799385925}
   - component: {fileID: 799385924}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -586,7 +591,7 @@ GameObject:
   - component: {fileID: 937870629}
   - component: {fileID: 937870628}
   - component: {fileID: 937870627}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -783,7 +788,7 @@ GameObject:
   - component: {fileID: 1371504118}
   - component: {fileID: 1371504117}
   - component: {fileID: 1371504116}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -888,7 +893,7 @@ GameObject:
   - component: {fileID: 1503164492}
   - component: {fileID: 1503164491}
   - component: {fileID: 1503164490}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
