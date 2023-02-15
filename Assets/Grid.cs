@@ -11,20 +11,19 @@ public class Grid : MonoBehaviour
 	Node[,] grid;
 
 	float nodeDiameter;
-	int gridSizeX, gridSizeY;
+	int gridSizeX, gridSizeY; // number of nodes on each axis. x and y are separate since map may not be a square.
 
 	void Start()
 	{
 		nodeDiameter = nodeRadius * 2;
-		// calculate how many nodes are required in each axis. 
-		// x and y are separate since map may not be a square.
+		// calculate how many nodes are required in each axis.
 		gridSizeX = Mathf.RoundToInt(gridWorldSize.x / nodeDiameter);
 		gridSizeY = Mathf.RoundToInt(gridWorldSize.y / nodeDiameter);
 
 		CreateGrid();
 	}
 
-	void CreateGrid()
+	void CreateGrid() // creates grid of nodes and checks if they are traversable.
 	{
 		grid = new Node[gridSizeX, gridSizeY];
 		Vector3 worldBottomLeft = transform.position - Vector3.right * gridWorldSize.x / 2 - Vector3.forward * gridWorldSize.y / 2; // find world position of bottom left corner of grid. corresponds to grid[0, 0].
@@ -40,16 +39,16 @@ public class Grid : MonoBehaviour
 		}
 	}
 
-	void OnDrawGizmos()
+	void OnDrawGizmos() // draw wireframe cube around map in scene view + colour nodes for debugging.
 	{
-		Gizmos.DrawWireCube(transform.position, new Vector3(gridWorldSize.x, 1, gridWorldSize.y));
+		Gizmos.DrawWireCube(transform.position, new Vector3(gridWorldSize.x, 1, gridWorldSize.y)); // wire-frame cube around map.
 
-		if (grid != null)
+		if (grid != null) // check if grid actually has nodes.
 		{
-			foreach (Node n in grid)
+			foreach (Node n in grid) // for each node in array.
 			{
-				Gizmos.color = (n.traversable) ? Color.white : Color.red;
-				Gizmos.DrawCube(n.worldPos, Vector3.one * (nodeDiameter - 0.1f));
+				Gizmos.color = (n.traversable) ? Color.white : Color.red; // if node is traversable, draw white cube. else, draw red cube.
+				Gizmos.DrawCube(n.worldPos, Vector3.one * (nodeDiameter - 0.1f)); // draw cube.
 			}
 		}
 	}
