@@ -16,6 +16,8 @@ public class Grid : MonoBehaviour
 	void Start()
 	{
 		nodeDiameter = nodeRadius * 2;
+		// calculate how many nodes are required in each axis. 
+		// x and y are separate since map may not be a square.
 		gridSizeX = Mathf.RoundToInt(gridWorldSize.x / nodeDiameter);
 		gridSizeY = Mathf.RoundToInt(gridWorldSize.y / nodeDiameter);
 
@@ -25,15 +27,15 @@ public class Grid : MonoBehaviour
 	void CreateGrid()
 	{
 		grid = new Node[gridSizeX, gridSizeY];
-		Vector3 worldBottomLeft = transform.position - Vector3.right * gridWorldSize.x / 2 - Vector3.forward * gridWorldSize.y / 2;
+		Vector3 worldBottomLeft = transform.position - Vector3.right * gridWorldSize.x / 2 - Vector3.forward * gridWorldSize.y / 2; // find world position of bottom left corner of grid. corresponds to grid[0, 0].
 
 		for (int x = 0; x < gridSizeX; x++)
 		{
 			for (int y = 0; y < gridSizeY; y++)
 			{
-				Vector3 worldPoint = worldBottomLeft + Vector3.right * (x * nodeDiameter + nodeRadius) + Vector3.forward * (y * nodeDiameter + nodeRadius);
-				bool traversable = !(Physics.CheckSphere(worldPoint, nodeRadius, untraversableMask));
-				grid[x, y] = new Node(traversable, worldPoint);
+				Vector3 worldPoint = worldBottomLeft + Vector3.right * (x * nodeDiameter + nodeRadius) + Vector3.forward * (y * nodeDiameter + nodeRadius); // find node's world position.
+				bool traversable = !(Physics.CheckSphere(worldPoint, nodeRadius, untraversableMask)); // collision sphere to check if the node is traversable.
+				grid[x, y] = new Node(traversable, worldPoint); // add node to grid.
 			}
 		}
 	}
